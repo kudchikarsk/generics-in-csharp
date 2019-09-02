@@ -76,7 +76,7 @@ namespace generics_in_csharp
 
         public void Remove(int n)
         {
-            if (int.Equals(root.data, n))
+            if (object.Equals(root.data, n))
             {
                 var node = root;
                 root = node.next;
@@ -87,7 +87,7 @@ namespace generics_in_csharp
                 Node curr = root;
                 while (curr.next != null)
                 {
-                    if (int.Equals(curr.next.data, n))
+                    if (object.Equals(curr.next.data, n))
                     {
                         var node = curr.next;
                         curr.next = node.next;
@@ -180,7 +180,7 @@ namespace generics_in_csharp
                 Node<T> curr = root;
                 while (curr.next != null)
                 {
-                    if (int.Equals(curr.next.data, n))
+                    if (object.Equals(curr.next.data, n))
                     {
                         var node = curr.next;
                         curr.next = node.next;
