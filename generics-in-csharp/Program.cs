@@ -10,31 +10,27 @@ namespace generics_in_csharp
     {
         public static void Main(string[] args)
         {
-            var list = new LinkedListFloat();
-            list.AddLast(1.5f);
-            list.AddLast(2f);
-            list.AddLast(2f);
-            list.AddLast(3f);
-
-            list.Remove(2f);
-
-            var sum = 0f;
+            var list = new LinkedList();
+            list.AddLast(1);
+            list.AddLast(2);
+            list.AddLast(2);
+            list.AddLast(3);
+            list.AddLast("John Doe");
+            list.Remove(2);
+            var sum = 0;
             while (list.Any())
             {
                 var first = list.First;
                 list.Remove(first);
                 Console.WriteLine(first);
-
                 try
                 {
-                    sum += first;
+                    sum += (int)first;
                 }
                 catch (Exception)
                 {}
             }
-
             Console.WriteLine("Sum:"+ sum);
-
             Console.ReadLine();
         }
     }
