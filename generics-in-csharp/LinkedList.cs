@@ -14,12 +14,12 @@ namespace generics_in_csharp
             // link to next Node in list
             public Node next = null;
             // value of this Node
-            public int data;
+            public object data;
         }
 
         private Node root = null;
 
-        public int First
+        public object First
         {
             get
             {
@@ -37,7 +37,7 @@ namespace generics_in_csharp
             return root != null;
         }
 
-        public int Last
+        public object Last
         {
             get
             {
@@ -56,7 +56,7 @@ namespace generics_in_csharp
         }
        
 
-        public void AddLast(int value)
+        public void AddLast(object value)
         {
             Node n = new Node { data = value };
             if (root == null)
@@ -74,7 +74,7 @@ namespace generics_in_csharp
             }                
         }
 
-        public void Remove(int n)
+        public void Remove(object n)
         {
             if (object.Equals(root.data, n))
             {
