@@ -14,21 +14,16 @@ namespace generics_in_csharp
             // link to next Node in list
             public Node next = null;
             // value of this Node
-            public object data;
+            public int data;
         }
 
         private Node root = null;
 
-        public object First
+        public Node First
         {
             get
             {
-                if (root == null)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-
-                return root.data;
+                return root;
             }
         }
 
@@ -37,26 +32,7 @@ namespace generics_in_csharp
             return root != null;
         }
 
-        public object Last
-        {
-            get
-            {
-                Node curr = root;
-                if (curr == null)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-
-                while (curr.next != null)
-                {
-                    curr = curr.next;
-                }                    
-                return curr.data;
-            }
-        }
-       
-
-        public void AddLast(object value)
+        public void AddLast(int value)
         {
             Node n = new Node { data = value };
             if (root == null)
@@ -74,9 +50,9 @@ namespace generics_in_csharp
             }                
         }
 
-        public void Remove(object n)
+        public void Remove(int data)
         {
-            if (object.Equals(root.data, n))
+            if (root != null && Object.Equals(root.data, data))
             {
                 var node = root;
                 root = node.next;
@@ -87,7 +63,7 @@ namespace generics_in_csharp
                 Node curr = root;
                 while (curr.next != null)
                 {
-                    if (object.Equals(curr.next.data, n))
+                    if (curr.next != null && Object.Equals(curr.next.data, data))
                     {
                         var node = curr.next;
                         curr.next = node.next;
@@ -112,16 +88,11 @@ namespace generics_in_csharp
 
         private Node<T> root = null;
 
-        public T First
+        public Node<T> First
         {
             get
             {
-                if (root == null)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-
-                return root.data;
+                return root;
             }
         }
 
@@ -129,25 +100,6 @@ namespace generics_in_csharp
         {
             return root != null;
         }
-
-        public T Last
-        {
-            get
-            {
-                Node<T> curr = root;
-                if (curr == null)
-                {
-                    throw new IndexOutOfRangeException();
-                }
-
-                while (curr.next != null)
-                {
-                    curr = curr.next;
-                }
-                return curr.data;
-            }
-        }
-
 
         public void AddLast(T value)
         {
@@ -167,9 +119,9 @@ namespace generics_in_csharp
             }
         }
 
-        public void Remove(T n)
+        public void Remove(T data)
         {
-            if (object.Equals(root.data, n))
+            if (root != null && Object.Equals(root.data, data))
             {
                 var node = root;
                 root = node.next;
@@ -180,7 +132,7 @@ namespace generics_in_csharp
                 Node<T> curr = root;
                 while (curr.next != null)
                 {
-                    if (object.Equals(curr.next.data, n))
+                    if (curr.next != null && Object.Equals(curr.next.data, data))
                     {
                         var node = curr.next;
                         curr.next = node.next;

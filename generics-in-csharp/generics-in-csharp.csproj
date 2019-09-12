@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="LinkedList.cs" />
     <Compile Include="LinkedListFloat.cs" />
+    <Compile Include="LinkedListObject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace generics_in_csharp
 {
-    public class LinkedListFloat
+    public class LinkedListObject
     {
         public class Node
         {
             // link to next Node in list
             public Node next = null;
             // value of this Node
-            public float data;
+            public object data;
         }
 
         private Node root = null;
@@ -27,7 +31,7 @@ namespace generics_in_csharp
             return root != null;
         }
 
-        public void AddLast(float value)
+        public void AddLast(object value)
         {
             Node n = new Node { data = value };
             if (root == null)
@@ -45,7 +49,7 @@ namespace generics_in_csharp
             }
         }
 
-        public void Remove(float data)
+        public void Remove(object data)
         {
             if (root != null && Object.Equals(root.data, data))
             {

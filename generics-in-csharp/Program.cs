@@ -10,7 +10,7 @@ namespace generics_in_csharp
     {
         public static void Main(string[] args)
         {
-            var list = new LinkedList();
+            var list = new LinkedListObject();
             list.AddLast(1);
             list.AddLast(2);
             list.AddLast(2);
@@ -21,11 +21,11 @@ namespace generics_in_csharp
             while (list.Any())
             {
                 var first = list.First;
-                list.Remove(first);
-                Console.WriteLine(first);
+                list.Remove(first.data);
+                Console.WriteLine(first.data);
                 try
                 {
-                    sum += (int)first;
+                    sum += (int)first.data;
                 }
                 catch (Exception)
                 {}
