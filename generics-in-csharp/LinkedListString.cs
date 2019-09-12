@@ -2,14 +2,14 @@
 
 namespace generics_in_csharp
 {
-    public class LinkedListFloat
+    public class LinkedListString
     {
         public class Node
         {
             // link to next Node in list
             public Node next = null;
             // value of this Node
-            public float data;
+            public string data;
         }
 
         private Node root = null;
@@ -27,7 +27,7 @@ namespace generics_in_csharp
             return root != null;
         }
 
-        public void AddLast(float value)
+        public void AddLast(string value)
         {
             Node n = new Node { data = value };
             if (root == null)
@@ -45,7 +45,7 @@ namespace generics_in_csharp
             }
         }
 
-        public void Remove(float data)
+        public void Remove(string data)
         {
             if (root != null && Object.Equals(root.data, data))
             {
