@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace generics_in_csharp
 {
@@ -76,7 +73,7 @@ namespace generics_in_csharp
         }
     }
 
-    public class LinkedList<T>
+    public class LinkedList<T> : IEnumerable<T>
     {
         public class Node<T>
         {
@@ -142,6 +139,21 @@ namespace generics_in_csharp
                     curr = curr.next;
                 }
             }
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            Node<T> curr = root;
+            while (curr != null)
+            {
+                yield return curr.data;
+                curr = curr.next;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
