@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 
 namespace generics_in_csharp
 {
@@ -154,6 +156,24 @@ namespace generics_in_csharp
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        public IEnumerable<TOutput> AsEnumerableOf<TOutput>()
+        {
+            var converter = TypeDescriptor.GetConverter(typeof(T));
+            foreach (var item in this)
+            {
+                yield return (TOutput)converter.ConvertTo(item, typeof(TOutput));
+            }
+        }
+
+        public IEnumerable<int> AsEnumerableOfInt()
+        {
+            var converter = TypeDescriptor.GetConverter(typeof(T));
+            foreach (var item in this)
+            {
+                yield return (int)converter.ConvertTo(item, typeof(int));
+            }
         }
     }
 }
