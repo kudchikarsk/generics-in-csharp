@@ -75,7 +75,7 @@ namespace generics_in_csharp
         }
     }
 
-    public class LinkedList<T> : IEnumerable<T>
+    public class LinkedList<T> : ILinkedList<T>
     {
         public class Node<T>
         {

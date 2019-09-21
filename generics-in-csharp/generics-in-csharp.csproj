@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ILinkedList.cs" />
     <Compile Include="LinkedList.cs" />
     <Compile Include="LinkedListString.cs" />
     <Compile Include="LinkedListObject.cs" />

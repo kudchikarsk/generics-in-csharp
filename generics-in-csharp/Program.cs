@@ -2,39 +2,24 @@
 
 namespace generics_in_csharp
 {
-    public delegate void Printer<T>(T data);
-
     public class Program
     {
-        
-
         public static void Main(string[] args)
         {
-            LinkedList<int> list = GenerateData();
-            list.Display(Console.WriteLine);
-            Console.ReadLine();
-        }
-
-        private static LinkedList<int> GenerateData()
-        {
-            var list = new LinkedList<int>();
-            list.AddLast(1);
-            list.AddLast(2);
-            list.AddLast(2);
-            list.AddLast(3);
-            list.Remove(2);
-            return list;
-        }
-    }
-
-    public static class Extension
-    {
-        public static void Display<T>(this LinkedList<T> list, Printer<T> printer)
-        {
-            foreach (var item in list)
+            var list = new LinkedList<double>();
+            list.AddLast(1.5);
+            list.AddLast(2.2);
+            list.AddLast(2.6);
+            list.AddLast(3.3);
+            list.Remove(2.2);
+            var sum = 0D;
+            foreach (var item in list.AsEnumerableOf<int>())
             {
-                printer(item);
+                sum += item;
+                Console.WriteLine(item);
             }
+            Console.WriteLine("Sum:" + sum);
+            Console.ReadLine();
         }
     }
 }
